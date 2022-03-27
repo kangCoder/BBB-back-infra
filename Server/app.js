@@ -3,6 +3,9 @@ const multer = require("multer");
 const fs = require("fs");
 
 const app = express();
+app.set("view engine", "ejs");
+app.set("views", "./views");
+app.use("/api", express.static("uploads"));
 
 fs.readdir("uploads", (err) => {
   if (err) {
@@ -18,13 +21,14 @@ const storage = multer.diskStorage({
     cb(null, Date.now() + "-" + file.originalname);
   },
 });
-
 const upload = multer({ storage: storage }).single("img");
+
+app.get("/api", (req, res) => {
+  res.render("index");
+});
 app.post("/api/upload", upload, (req, res, next) => {
-  res.status(201).send({
-    result: true,
-    fileInfo: req.file,
-  });
+  console.log(req.file.filename);
+  res.redirect(req.file.filename);
 });
 
 const PORT = process.env.PORT || 3000;
