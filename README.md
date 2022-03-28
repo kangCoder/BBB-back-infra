@@ -8,14 +8,14 @@
 
 - before
 
-![before](./image/before1.png)
-![before page](./image/before2.png)
+![before](./exercise1/image/before1.png)
+![before page](./exercise1/image/before2.png)
 
 - image upload
 
-![img upload](./image/upload.png)
+![img upload](./exercise1/image/upload.png)
 
 - after
 
-![after](./image/after1.png)
-![after page](./image/after2.png)
+![after](./exercise1/image/after1.png)
+![after page](./exercise1/image/after2.png)
